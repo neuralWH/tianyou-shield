@@ -36,10 +36,7 @@ public class TianyouUnit {
                 mirror = false;
                 shootY = 12f;
                 recoil = 8f;
-
                 bullet = TianyouBullets.plasmaHoming;
-                shots = 6;
-                shotDelay = 4f;
             }});
 
             weapons.add(new Weapon("tianyou-missile") {{
@@ -48,9 +45,6 @@ public class TianyouUnit {
                 mirror = true;
                 shootY = 8f;
                 recoil = 4f;
-                shots = 4;
-                shotDelay = 6f;
-
                 bullet = TianyouBullets.plasmaMissile;
             }});
 
@@ -60,7 +54,6 @@ public class TianyouUnit {
                 mirror = true;
                 shootY = 5f;
                 recoil = 2f;
-
                 bullet = TianyouBullets.pointDefense;
             }});
         }};
