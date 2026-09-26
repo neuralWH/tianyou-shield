@@ -1,7 +1,8 @@
 package tianyou.shield;
 
-import mindustry.content.*;
-import mindustry.type.*;
+import arc.struct.Seq;
+import mindustry.content.UnitTypes;
+import mindustry.type.PayloadStack;
 import mindustry.world.blocks.units.UnitAssembler;
 
 public class TianyouAssembler {
@@ -10,7 +11,7 @@ public class TianyouAssembler {
 
     public static void load() {
         tianyouAssembler = new UnitAssembler("tianyou-assembler") {{
-            localizedName = "机甲组装厂";
+            localizedName = "@block.tianyou-assembler.name";
             size = 5;
             health = 2400;
             consumePower(15f);
@@ -18,10 +19,10 @@ public class TianyouAssembler {
             plans.add(new AssemblerUnitPlan(
                 TianyouUnit.tianyou,
                 60f * 120f,
-                new PayloadStack[]{
+                Seq.with(
                     new PayloadStack(UnitTypes.merui, 6),
                     new PayloadStack(UnitTypes.cleroi, 8)
-                }
+                )
             ));
         }};
     }
