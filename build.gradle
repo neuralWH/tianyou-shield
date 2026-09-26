@@ -27,7 +27,7 @@ dependencies {
 sourceSets {
     main {
         resources {
-            srcDirs = ['assets']
+            srcDirs = []
         }
     }
 }
@@ -35,9 +35,14 @@ sourceSets {
 jar {
     archiveFileName = 'tianyou-shield.jar'
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+
+    from('mod.hjson')
+    from('assets') {
+        into 'assets'
+    }
 }
 
 tasks.withType(JavaCompile).configureEach {
-    options.encoding = 'GBK'
+    options.encoding = 'UTF-8'
     options.release = 17
 }
