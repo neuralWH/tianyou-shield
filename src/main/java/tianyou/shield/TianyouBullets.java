@@ -26,8 +26,6 @@ public class TianyouBullets {
             frontColor = Color.valueOf("ffd7a0");
             backColor = Color.valueOf("ffb054");
             despawnEffect = Fx.hitLaserBlast;
-            shots = 6;
-            shotDelay = 4f;
         }};
 
         plasmaMissile = new MissileBulletType() {{
@@ -45,8 +43,6 @@ public class TianyouBullets {
             weaveMag = 2f;
             frontColor = Color.valueOf("ffd7a0");
             backColor = Color.valueOf("ffb054");
-            shots = 4;
-            shotDelay = 6f;
         }};
 
         pointDefense = new BasicBulletType() {{
