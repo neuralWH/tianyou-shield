@@ -37,8 +37,6 @@ public class TianyouUnit {
                 shootY = 12f;
                 recoil = 8f;
                 bullet = TianyouBullets.plasmaHoming;
-                shots = 6;
-                shotDelay = 4f;
             }});
 
             weapons.add(new Weapon("tianyou-missile") {{
@@ -48,8 +46,6 @@ public class TianyouUnit {
                 shootY = 8f;
                 recoil = 4f;
                 bullet = TianyouBullets.plasmaMissile;
-                shots = 4;
-                shotDelay = 6f;
             }});
 
             weapons.add(new PointDefenseWeapon("tianyou-pointdefense") {{
