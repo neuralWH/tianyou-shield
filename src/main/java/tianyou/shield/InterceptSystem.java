@@ -255,7 +255,7 @@ public class InterceptSystem {
 
     private static void updateShieldInterceptPosition(Shield s, Unit u) {
         Bullet b = (Bullet) s.interceptTarget;
-        if (b == null || b.dead) {
+        if (b == null || !b.isAdded()) {
             s.intercepting = false;
             s.interceptTarget = null;
             s.assigned = false;
