@@ -40,6 +40,14 @@ jar {
     from('assets') {
         into 'assets'
     }
+
+    doLast {
+        println "=== JAR contents ==="
+        zipTree(archiveFile).files.each { file ->
+            println file.path
+        }
+        println "=== End of JAR contents ==="
+    }
 }
 
 tasks.withType(JavaCompile).configureEach {
