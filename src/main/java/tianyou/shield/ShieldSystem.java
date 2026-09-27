@@ -20,10 +20,11 @@ public class ShieldSystem {
     public static final float UPDATE_INTERVAL = 0.5f;
 
     public static void init() {
-        Events.run(Trigger.update, () -> {
-            float delta = Time.delta;
-            update(delta);
-        });
+        // Temporarily disabled for debugging
+        // Events.run(Trigger.update, () -> {
+        //     float delta = Time.delta;
+        //     update(delta);
+        // });
     }
 
     public static void initUnitPaths(Unit u) {
