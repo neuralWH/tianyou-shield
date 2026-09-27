@@ -1,9 +1,14 @@
 package tianyou.shield;
 
+import arc.struct.Seq;
+import mindustry.content.Blocks;
 import mindustry.content.TechTree;
 import mindustry.content.UnitTypes;
 import mindustry.mod.Mod;
 import mindustry.type.ItemStack;
+import mindustry.type.PayloadStack;
+import mindustry.world.blocks.units.UnitAssembler;
+import mindustry.world.blocks.units.UnitAssembler.AssemblerUnitPlan;
 
 public class TianyouMod extends Mod {
 
@@ -14,7 +19,6 @@ public class TianyouMod extends Mod {
     public void loadContent() {
         TianyouBullets.load();
         TianyouUnit.load();
-        TianyouAssembler.load();
     }
 
     @Override
@@ -22,9 +26,23 @@ public class TianyouMod extends Mod {
         ShieldSystem.init();
         InterceptSystem.init();
 
+        // Add Tianyou to Erekir tech tree under Collaris
         TechTree.TechNode parent = UnitTypes.collaris.techNode;
         if (parent != null) {
             new TechTree.TechNode(parent, TianyouUnit.tianyou, new ItemStack[0]);
+        }
+
+        // Add production plan to vanilla mech assembler
+        if (Blocks.mechAssembler instanceof UnitAssembler assembler) {
+            AssemblerUnitPlan plan = new AssemblerUnitPlan(
+                TianyouUnit.tianyou,
+                60f * 120f,
+                Seq.with(
+                    new PayloadStack(UnitTypes.merui, 6),
+                    new PayloadStack(UnitTypes.cleroi, 8)
+                )
+            );
+            assembler.plans.add(plan);
         }
     }
 }
