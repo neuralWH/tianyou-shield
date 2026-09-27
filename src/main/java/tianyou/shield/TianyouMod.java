@@ -45,7 +45,7 @@ public class TianyouMod extends Mod {
                     new PayloadStack(UnitTypes.cleroi, 8)
                 )
             );
-            plan.tier = 2;
+            // Remove plan.tier = 2; -- AssemblerUnitPlan has no tier field
             assembler.plans.add(plan);
         }
     }
