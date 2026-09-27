@@ -9,9 +9,9 @@ public class TianyouUnit {
 
     public static void load() {
         tianyou = new UnitType("tianyou") {{
-            constructor = MechUnit::create;
+            constructor = TankUnit::create;
             health = 32000f;
-            hitSize = 3.5f;
+            hitSize = 1.5f;
             localizedName = "@unit.tianyou.name";
             description = "@unit.tianyou.description";
         }};
