@@ -35,7 +35,7 @@ public class TianyouMod extends Mod {
             new TechTree.TechNode(parent, TianyouUnit.tianyou, new ItemStack[0]);
         }
 
-        // Add Advanced Assembler Module to tech tree under Basic Assembler Module
+        // Add Advanced Assembler Module under Basic Assembler Module
         TechTree.TechNode moduleParent = Blocks.basicAssemblerModule.techNode;
         if (moduleParent != null) {
             new TechTree.TechNode(moduleParent, advancedAssemblerModule, new ItemStack[0]);
@@ -48,7 +48,9 @@ public class TianyouMod extends Mod {
                 60f * 120f,
                 Seq.with(
                     new PayloadStack(UnitTypes.merui, 6),
-                    new PayloadStack(UnitTypes.cleroi, 8)
+                    new PayloadStack(UnitTypes.cleroi, 8),
+                    new PayloadStack(Blocks.reinforcedSurgeWallLarge, 16),
+                    new PayloadStack(Blocks.carbideWallLarge, 10)
                 )
             );
             assembler.plans.add(plan);
