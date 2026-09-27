@@ -12,6 +12,8 @@ import mindustry.world.blocks.units.UnitAssembler.AssemblerUnitPlan;
 
 public class TianyouMod extends Mod {
 
+    public static AdvancedAssemblerModule advancedAssemblerModule;
+
     public TianyouMod() {
     }
 
@@ -19,6 +21,7 @@ public class TianyouMod extends Mod {
     public void loadContent() {
         TianyouBullets.load();
         TianyouUnit.load();
+        advancedAssemblerModule = new AdvancedAssemblerModule("advanced-assembler-module");
     }
 
     @Override
@@ -42,6 +45,7 @@ public class TianyouMod extends Mod {
                     new PayloadStack(UnitTypes.cleroi, 8)
                 )
             );
+            plan.tier = 2;
             assembler.plans.add(plan);
         }
     }
