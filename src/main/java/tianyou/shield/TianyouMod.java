@@ -41,7 +41,7 @@ public class TianyouMod extends Mod {
             new TechTree.TechNode(moduleParent, advancedAssemblerModule, new ItemStack[0]);
         }
 
-        // Add production plan to vanilla mech assembler
+        // Add production plan to vanilla mech assembler, inserted at index 0 to prioritize
         if (Blocks.mechAssembler instanceof UnitAssembler assembler) {
             AssemblerUnitPlan plan = new AssemblerUnitPlan(
                 TianyouUnit.tianyou,
@@ -53,7 +53,7 @@ public class TianyouMod extends Mod {
                     new PayloadStack(Blocks.carbideWallLarge, 10)
                 )
             );
-            assembler.plans.add(plan);
+            assembler.plans.insert(0, plan);
         }
     }
 }
