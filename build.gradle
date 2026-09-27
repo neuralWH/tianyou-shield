@@ -43,9 +43,12 @@ jar {
 
     doLast {
         println "=== JAR contents ==="
-        zipTree(archiveFile).files.each { file ->
-            println file.path
+        def jarFile = archiveFile.get().asFile
+        def zip = new java.util.zip.ZipFile(jarFile)
+        zip.entries().each { entry ->
+            println entry.name
         }
+        zip.close()
         println "=== End of JAR contents ==="
     }
 }
