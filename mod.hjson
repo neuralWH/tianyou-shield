@@ -1,8 +1,0 @@
-name: tianyou-shield
-displayName: Tianyou Shield
-author: YourName
-description: Adds the Tianyou unit with shared shields.
-version: "1.0"
-minGameVersion: "159"
-java: true
-main: tianyou.shield.TianyouMod
