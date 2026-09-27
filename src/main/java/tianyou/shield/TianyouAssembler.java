@@ -1,5 +1,6 @@
 package tianyou.shield;
 
+import arc.util.Vars;
 import mindustry.content.Items;
 import mindustry.content.UnitTypes;
 import mindustry.type.Category;
@@ -13,7 +14,7 @@ public class TianyouAssembler extends UnitFactory {
 
         this.size = 3;
         this.health = 600;
-        this.itemCapacity = 30;
+        this.itemCapacity = 100;
         this.buildTime = 60f * 5f;
         this.category = Category.units;
 
@@ -22,7 +23,7 @@ public class TianyouAssembler extends UnitFactory {
             Items.thorium, 80
         ));
 
-        this.consumePower(60f / 60f);
+        this.consumePower(1.5f);
 
         this.plans.add(new UnitFactory.UnitPlan(
             UnitTypes.dagger,
@@ -32,5 +33,13 @@ public class TianyouAssembler extends UnitFactory {
                 Items.thorium, 30
             )
         ));
+
+        this.capacities = new int[Vars.content.items().size];
+        for (ItemStack stack : this.plans.get(0).requirements) {
+            this.capacities[stack.item.id] = Math.max(
+                this.capacities[stack.item.id],
+                stack.amount * 2
+            );
+        }
     }
 }
