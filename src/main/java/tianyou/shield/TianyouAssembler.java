@@ -19,17 +19,17 @@ public class TianyouAssembler extends UnitFactory {
 
         this.requirements(Category.units, ItemStack.with(
             Items.silicon, 100,
-            Items.lead, 80
+            Items.beryllium, 80
         ));
 
         this.consumePower(1.2f);
 
         this.plans.add(new UnitFactory.UnitPlan(
-            UnitTypes.dagger,
+            UnitTypes.merui,
             60f * 15f,
             ItemStack.with(
                 Items.silicon, 10,
-                Items.lead, 10
+                Items.beryllium, 10
             )
         ));
     }
