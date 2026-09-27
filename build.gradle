@@ -1,18 +1,25 @@
 plugins {
     id 'java'
+    id 'io.github.liplum.mgpp' version '1.0.0'
 }
 
 version = '1.0'
 
 repositories {
     mavenCentral()
-    maven { url "https://raw.githubusercontent.com/Zelaux/MindustryRepo/master/repository" }
     maven { url 'https://www.jitpack.io' }
 }
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17
     targetCompatibility = JavaVersion.VERSION_17
+}
+
+mindustry {
+    dependency {
+        mindustry version: 'v159'
+        arc version: 'v159'
+    }
 }
 
 dependencies {
