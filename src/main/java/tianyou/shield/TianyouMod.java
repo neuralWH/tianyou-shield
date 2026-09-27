@@ -12,7 +12,7 @@ import mindustry.world.blocks.units.UnitAssembler.AssemblerUnitPlan;
 
 public class TianyouMod extends Mod {
 
-    public static AdvancedAssemblerModule advancedAssemblerModule;
+    public static TianyouAssembler tianyouAssembler;
 
     public TianyouMod() {
     }
@@ -21,7 +21,7 @@ public class TianyouMod extends Mod {
     public void loadContent() {
         TianyouBullets.load();
         TianyouUnit.load();
-        advancedAssemblerModule = new AdvancedAssemblerModule("advanced-assembler-module");
+        tianyouAssembler = new TianyouAssembler("tianyou-assembler");
     }
 
     @Override
@@ -29,31 +29,16 @@ public class TianyouMod extends Mod {
         ShieldSystem.init();
         InterceptSystem.init();
 
-        // Add Tianyou to Erekir tech tree under Collaris
-        TechTree.TechNode parent = UnitTypes.collaris.techNode;
-        if (parent != null) {
-            new TechTree.TechNode(parent, TianyouUnit.tianyou, new ItemStack[0]);
+        // Add Tianyou unit to Erekir tech tree under Collaris
+        TechTree.TechNode unitParent = UnitTypes.collaris.techNode;
+        if (unitParent != null) {
+            new TechTree.TechNode(unitParent, TianyouUnit.tianyou, new ItemStack[0]);
         }
 
-        // Add Advanced Assembler Module under Basic Assembler Module
-        TechTree.TechNode moduleParent = Blocks.basicAssemblerModule.techNode;
-        if (moduleParent != null) {
-            new TechTree.TechNode(moduleParent, advancedAssemblerModule, new ItemStack[0]);
-        }
-
-        // Add production plan to vanilla mech assembler, inserted at index 0 to prioritize
-        if (Blocks.mechAssembler instanceof UnitAssembler assembler) {
-            AssemblerUnitPlan plan = new AssemblerUnitPlan(
-                TianyouUnit.tianyou,
-                60f * 300f,
-                Seq.with(
-                    new PayloadStack(UnitTypes.merui, 6),
-                    new PayloadStack(UnitTypes.cleroi, 8),
-                    new PayloadStack(Blocks.reinforcedSurgeWallLarge, 16),
-                    new PayloadStack(Blocks.carbideWallLarge, 10)
-                )
-            );
-            assembler.plans.insert(0, plan);
+        // Add Tianyou Assembler under vanilla Mech Assembler
+        TechTree.TechNode assemblerParent = Blocks.mechAssembler.techNode;
+        if (assemblerParent != null) {
+            new TechTree.TechNode(assemblerParent, tianyouAssembler, new ItemStack[0]);
         }
     }
 }
