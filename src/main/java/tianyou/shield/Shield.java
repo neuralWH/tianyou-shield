@@ -51,6 +51,7 @@ public class Shield {
     }
 
     public void startTransition(Vec2 target) {
+        if (target == null) return;
         transitionFrom.set(position);
         transitionTo.set(target);
         transitionProgress = 0f;
@@ -64,7 +65,8 @@ public class Shield {
             hp = 0f;
             state = ShieldState.DESTROYED;
             endAllTasks();
-            currentPath = ShieldSystem.getPathA(owner);
+            CirclePath a = ShieldSystem.getPathA(owner);
+            if (a != null) currentPath = a;
         }
     }
 
@@ -76,6 +78,9 @@ public class Shield {
 
     public void draw() {
         if (state == ShieldState.DESTROYED) return;
+        if (currentPath == null) return;
+        if (tangent == null) return;
+
         float angle = Mathf.atan2(tangent.y, tangent.x);
         float curve = 0.2f;
 
@@ -94,6 +99,7 @@ public class Shield {
 
     public boolean collidesWithBullet(float bx, float by) {
         if (state != ShieldState.ACTIVE) return false;
+        if (tangent == null) return false;
         float angle = Mathf.atan2(tangent.y, tangent.x);
         float dx = bx - position.x;
         float dy = by - position.y;
