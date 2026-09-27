@@ -13,23 +13,23 @@ public class TianyouAssembler extends UnitFactory {
 
         this.size = 3;
         this.health = 600;
-        this.itemCapacity = 100;
+        this.itemCapacity = 10;
         this.buildTime = 60f * 5f;
         this.category = Category.units;
 
         this.requirements(Category.units, ItemStack.with(
             Items.silicon, 100,
-            Items.thorium, 80
+            Items.lead, 80
         ));
 
-        this.consumePower(1.5f);
+        this.consumePower(1.2f);
 
         this.plans.add(new UnitFactory.UnitPlan(
             UnitTypes.dagger,
-            60f * 10f,
+            60f * 15f,
             ItemStack.with(
-                Items.silicon, 50,
-                Items.thorium, 30
+                Items.silicon, 10,
+                Items.lead, 10
             )
         ));
     }
