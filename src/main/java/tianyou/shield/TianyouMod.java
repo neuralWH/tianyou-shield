@@ -35,6 +35,12 @@ public class TianyouMod extends Mod {
             new TechTree.TechNode(parent, TianyouUnit.tianyou, new ItemStack[0]);
         }
 
+        // Add Advanced Assembler Module to tech tree under Basic Assembler Module
+        TechTree.TechNode moduleParent = Blocks.basicAssemblerModule.techNode;
+        if (moduleParent != null) {
+            new TechTree.TechNode(moduleParent, advancedAssemblerModule, new ItemStack[0]);
+        }
+
         // Add production plan to vanilla mech assembler
         if (Blocks.mechAssembler instanceof UnitAssembler assembler) {
             AssemblerUnitPlan plan = new AssemblerUnitPlan(
@@ -45,7 +51,6 @@ public class TianyouMod extends Mod {
                     new PayloadStack(UnitTypes.cleroi, 8)
                 )
             );
-            // Remove plan.tier = 2; -- AssemblerUnitPlan has no tier field
             assembler.plans.add(plan);
         }
     }
