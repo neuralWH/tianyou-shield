@@ -1,6 +1,7 @@
 package tianyou.shield;
 
 import mindustry.content.Items;
+import mindustry.content.UnitTypes;
 import mindustry.type.Category;
 import mindustry.type.ItemStack;
 import mindustry.world.blocks.units.UnitFactory;
@@ -19,8 +20,9 @@ public class TianyouAssembler extends UnitFactory {
             Items.thorium, 80
         ));
 
+        // Test with vanilla unit instead of Tianyou
         this.plans.add(new UnitFactory.UnitPlan(
-            TianyouUnit.tianyou,
+            UnitTypes.dagger,
             60f * 10f,
             ItemStack.with(
                 Items.silicon, 50,
