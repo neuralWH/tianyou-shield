@@ -11,6 +11,7 @@ public class ShieldCluster {
     public ShieldPath pathC, pathD;
 
     public boolean canAdd(Unit u) {
+        if (u == null) return false;
         Seq<Unit> test = new Seq<>(units);
         test.add(u);
         Vec2 c = new Vec2();
@@ -52,10 +53,14 @@ public class ShieldCluster {
 
     public void drawShields() {
         for (Unit u : units) {
+            if (u == null) continue;
             Seq<Shield> shields = ShieldSystem.getShields(u);
             if (shields == null) continue;
             for (Shield s : shields) {
-                if (s.state == ShieldState.ACTIVE) s.draw();
+                if (s == null) continue;
+                if (s.state != ShieldState.ACTIVE) continue;
+                if (s.currentPath == null) continue;
+                s.draw();
             }
         }
     }
