@@ -22,13 +22,21 @@ public class MechTianyouUnit extends MechUnit {
 
         if (!shieldsInitialized && !dead) {
             shieldsInitialized = true;
-            initShields();
+            try {
+                initShields();
+            } catch (Exception e) {
+                // Ignore to prevent unit removal
+            }
         }
 
         stompTimer += Time.delta;
         if (stompTimer >= 0.5f) {
             stompTimer = 0f;
-            applyStompDamage();
+            try {
+                applyStompDamage();
+            } catch (Exception e) {
+                // Ignore to prevent unit removal
+            }
         }
     }
 
@@ -39,12 +47,17 @@ public class MechTianyouUnit extends MechUnit {
         for (int i = 0; i < 5; i++) {
             shields.add(new Shield(i, this));
         }
+
+        CirclePath a = ShieldSystem.getPathA(this);
+        CirclePath b = ShieldSystem.getPathB(this);
+
         for (int i = 0; i < 3; i++) {
-            shields.get(i).currentPath = ShieldSystem.getPathA(this);
+            if (a != null) shields.get(i).currentPath = a;
         }
         for (int i = 3; i < 5; i++) {
-            shields.get(i).currentPath = ShieldSystem.getPathB(this);
+            if (b != null) shields.get(i).currentPath = b;
         }
+
         ShieldSystem.registerShields(this, shields);
     }
 
