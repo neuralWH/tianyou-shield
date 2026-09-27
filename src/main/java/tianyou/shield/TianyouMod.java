@@ -45,7 +45,7 @@ public class TianyouMod extends Mod {
         if (Blocks.mechAssembler instanceof UnitAssembler assembler) {
             AssemblerUnitPlan plan = new AssemblerUnitPlan(
                 TianyouUnit.tianyou,
-                60f * 120f,
+                60f * 300f,
                 Seq.with(
                     new PayloadStack(UnitTypes.merui, 6),
                     new PayloadStack(UnitTypes.cleroi, 8),
