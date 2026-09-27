@@ -16,12 +16,12 @@ repositories {
 }
 
 dependencies {
-    compileOnly "com.github.Anuken.Mindustry:core:v159.7"
-    compileOnly "com.github.Anuken.Arc:arc-core:v159.7"
-    compileOnly "com.github.Anuken.Arc:flabel:v159.7"
-    compileOnly "com.github.Anuken.Arc:freetype:v159.7"
-    compileOnly "com.github.Anuken.Arc:g3d:v159.7"
-    compileOnly "com.github.Anuken.Arc:arcnet:v159.7"
+    compileOnly "com.github.Anuken.Mindustry:core:v159"
+    compileOnly "com.github.Anuken.Arc:arc-core:v159"
+    compileOnly "com.github.Anuken.Arc:flabel:v159"
+    compileOnly "com.github.Anuken.Arc:freetype:v159"
+    compileOnly "com.github.Anuken.Arc:g3d:v159"
+    compileOnly "com.github.Anuken.Arc:arcnet:v159"
 }
 
 sourceSets {
