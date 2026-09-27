@@ -13,11 +13,11 @@ public class TianyouUnit {
             constructor = MechTianyouUnit::create;
             health = 32000f;
             armor = 12f;
-            hitSize = 6.5f;
+            hitSize = 3.5f;
             itemCapacity = 180;
             speed = 6f / 60f;
             rotateSpeed = 2.2f;
-            range = 38f * 8f;
+            range = 50f;
             targetAir = true;
             targetGround = true;
             flying = false;
