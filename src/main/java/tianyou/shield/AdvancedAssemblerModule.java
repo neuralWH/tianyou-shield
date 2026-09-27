@@ -14,12 +14,17 @@ public class AdvancedAssemblerModule extends UnitAssemblerModule {
         this.size = 5;
         this.health = 3100;
         this.buildTime = 30f * 60f;
+
+        // Set category to units so it appears in the 8th build menu category
+        this.category = Category.units;
+
         this.requirements(Category.units, ItemStack.with(
             Items.thorium, 800,
             Items.phaseFabric, 600,
             Items.oxide, 400,
             Items.carbide, 500
         ));
+
         this.consumePower(210f / 60f);
     }
 }
