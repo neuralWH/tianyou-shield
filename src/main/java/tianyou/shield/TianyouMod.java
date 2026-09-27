@@ -26,8 +26,9 @@ public class TianyouMod extends Mod {
 
     @Override
     public void init() {
-        ShieldSystem.init();
-        InterceptSystem.init();
+        // Temporarily disabled for debugging
+        // ShieldSystem.init();
+        // InterceptSystem.init();
 
         // Add Advanced Mech Assembler under vanilla Mech Assembler
         TechTree.TechNode assemblerParent = Blocks.mechAssembler.techNode;
