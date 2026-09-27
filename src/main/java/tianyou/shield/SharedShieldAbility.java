@@ -18,19 +18,24 @@ public class SharedShieldAbility extends Ability {
 
     @Override
     public void draw(Unit unit) {
+        if (unit == null) return;
         if (unit.type != TianyouUnit.tianyou) return;
         if (!unit.isValid()) return;
 
-        Draw.z(Layer.shields);
-        Draw.color(Pal.shield);
+        try {
+            Draw.z(Layer.shields);
+            Draw.color(Pal.shield);
 
-        ShieldCluster cluster = ShieldSystem.unitToCluster.get(unit);
-        if (cluster != null) {
-            cluster.drawShields();
-        } else {
-            ShieldSystem.drawSingleUnitShields(unit);
+            ShieldCluster cluster = ShieldSystem.unitToCluster.get(unit);
+            if (cluster != null) {
+                cluster.drawShields();
+            } else {
+                ShieldSystem.drawSingleUnitShields(unit);
+            }
+
+            Draw.reset();
+        } catch (Exception e) {
+            // Ignore drawing exceptions to prevent unit removal
         }
-
-        Draw.reset();
     }
 }
