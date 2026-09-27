@@ -29,16 +29,16 @@ public class TianyouMod extends Mod {
         ShieldSystem.init();
         InterceptSystem.init();
 
-        // Add Tianyou unit to Erekir tech tree under Collaris
-        TechTree.TechNode unitParent = UnitTypes.collaris.techNode;
-        if (unitParent != null) {
-            new TechTree.TechNode(unitParent, TianyouUnit.tianyou, new ItemStack[0]);
-        }
-
-        // Add Tianyou Assembler under vanilla Mech Assembler
+        // Add Advanced Mech Assembler under vanilla Mech Assembler
         TechTree.TechNode assemblerParent = Blocks.mechAssembler.techNode;
         if (assemblerParent != null) {
             new TechTree.TechNode(assemblerParent, tianyouAssembler, new ItemStack[0]);
+        }
+
+        // Add Tianyou unit under Advanced Mech Assembler
+        TechTree.TechNode unitParent = tianyouAssembler.techNode;
+        if (unitParent != null) {
+            new TechTree.TechNode(unitParent, TianyouUnit.tianyou, new ItemStack[0]);
         }
     }
 }
